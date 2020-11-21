@@ -35,11 +35,12 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.indiewalkabout.mapo.shoppingcart.R
-import com.indiewalkabout.mapo.shoppingcart.databinding.ActivityGroceryListBinding
+import com.indiewalkabout.mapo.shoppingcart.databinding.ActivityShoppingListBinding
 import com.indiewalkabout.mapo.shoppingcart.model.ShoppingItem
 import com.indiewalkabout.mapo.shoppingcart.viewmodel.ShoppingListViewModel
 
@@ -49,15 +50,15 @@ import com.indiewalkabout.mapo.shoppingcart.viewmodel.ShoppingListViewModel
 class ShoppingListActivity : AppCompatActivity(), NewItemDialogFragment.NewItemDialogListener {
 
     lateinit var viewModel: ShoppingListViewModel
-    private lateinit var binding: ActivityGroceryListBinding
+    private lateinit var binding: ActivityShoppingListBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme)
 
         super.onCreate(savedInstanceState)
 
-        viewModel = ViewModelProviders.of(this).get(ShoppingListViewModel::class.java)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_grocery_list)
+        viewModel = ViewModelProvider(this).get(ShoppingListViewModel::class.java)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_shopping_list)
 
         binding.rvGroceryList.layoutManager = LinearLayoutManager(this)
 

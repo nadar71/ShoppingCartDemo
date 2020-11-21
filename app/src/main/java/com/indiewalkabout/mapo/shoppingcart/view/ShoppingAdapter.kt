@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.indiewalkabout.mapo.shoppingcart.R
-import com.indiewalkabout.mapo.shoppingcart.databinding.GroceryListItemBinding
+import com.indiewalkabout.mapo.shoppingcart.databinding.ShoppingListItemBinding
 import com.indiewalkabout.mapo.shoppingcart.model.ShoppingItem
 
 class ShoppingAdapter(val items: ArrayList<ShoppingItem>, val context: Context,
@@ -17,8 +17,8 @@ class ShoppingAdapter(val items: ArrayList<ShoppingItem>, val context: Context,
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(context)
-        val binding: GroceryListItemBinding = DataBindingUtil.inflate(layoutInflater,
-                R.layout.grocery_list_item,
+        val binding: ShoppingListItemBinding = DataBindingUtil.inflate(layoutInflater,
+                R.layout.shopping_list_item,
                 parent, false)
         return ViewHolder(binding)
 
@@ -33,7 +33,7 @@ class ShoppingAdapter(val items: ArrayList<ShoppingItem>, val context: Context,
     }
 }
 
-class ViewHolder(val binding: GroceryListItemBinding) : RecyclerView.ViewHolder(binding.root) {
+class ViewHolder(val binding: ShoppingListItemBinding) : RecyclerView.ViewHolder(binding.root) {
     fun bind(item: ShoppingItem) {
         binding.apply {
             itemName = "${item.amount}x: ${item.itemName}"
